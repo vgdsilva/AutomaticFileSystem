@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AutomaticDownloadFile.Enuns;
+using AutomaticDownloadFile.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,8 +17,8 @@ namespace AutomaticDownloadFile.ServiceBO
         private static string destination_dir_image = @$"C:\Users\{userName}\Pictures\";
         private static string destination_dir_documents = @$"C:\Users\{userName}\Documents\";
         
-        private static List<string> images_extentions = new List<string> { ".jpg", ".png" };
-        private static List<string> documents_extentions = new List<string> { ".doc", ".pdf", ".docx", ".txt", ".xls", ".xlsx" };
+        private static List<TiposArquivos> images_extentions = new List<TiposArquivos> { TiposArquivos.PNG, TiposArquivos.JPG, TiposArquivos.JPEG };
+        private static List<TiposArquivos> documents_extentions = new List<TiposArquivos> { TiposArquivos.DOC, TiposArquivos.PDF, TiposArquivos.DOCX, TiposArquivos.TXT, TiposArquivos.XLS, TiposArquivos.XLSX };
 
         public AutomaticFileServiceBO()
         {
@@ -42,10 +44,10 @@ namespace AutomaticDownloadFile.ServiceBO
         {
             documents_extentions.ForEach(extention =>
             {
-                if (file.EndsWith(extention))
+                if (file.EndsWith(Utility.GetDescritionFromEnum(extention)))
                 {
                     string source_file = file.Replace($@"{source_dir}\", " ");
-                    //Console.WriteLine("Moved Document file: {0} to Directory: {1}", source_file, destination_dir_documents);
+                    Console.WriteLine("Moved Document file: {0} to Directory: {1}", source_file, destination_dir_documents);
                     MoveFiles(destination_dir_documents, file, source_file);
                 }
             });
@@ -55,10 +57,10 @@ namespace AutomaticDownloadFile.ServiceBO
         {
             images_extentions.ForEach(extenction =>
             {
-                if (file.EndsWith(extenction))
+                if (file.EndsWith(Utility.GetDescritionFromEnum(extenction)))
                 {
                     string source_file = file.Replace($@"{source_dir}\", " ");
-                    //Console.WriteLine("Moved image file: {0} to Directory: {1}", source_file, destination_dir_image);
+                    Console.WriteLine("Moved image file: {0} to Directory: {1}", source_file, destination_dir_image);
                     MoveFiles(destination_dir_image, file, source_file);
                 }
             });

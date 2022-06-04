@@ -23,9 +23,7 @@ namespace AutomaticDownloadFile.Service
 
         private void TimerElapsed(object? sender, ElapsedEventArgs e)
         {
-            serviceBO.IniciateFileService();
-            string[] lines = new string[] { DateTime.Now.ToString() };
-            File.AppendAllLines(@"C:\Users\vinig\Desktop\Teste.txt", lines);
+            serviceBO.IniciateFileService(); // Iniciar a automatização
         }
 
         public void Start()

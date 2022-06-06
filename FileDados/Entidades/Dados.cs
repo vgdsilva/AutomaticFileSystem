@@ -8,10 +8,10 @@ namespace FileDados.Entidades
 {
     public class Dados
     {
-        private static string userName = Environment.UserName;
-        public string source_dir = @$"C:\Users\{userName}\Downloads";
-        public string destination_dir_image = @$"C:\Users\{userName}\Pictures\";
-        public string destination_dir_documents = @$"C:\Users\{userName}\Documents\";
+        
+        public string source_dir { get; set; }
+        public string destination_dir_image { get; set; }
+        public string destination_dir_documents { get; set; }
 
 
     }

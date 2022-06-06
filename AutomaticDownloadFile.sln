@@ -5,7 +5,9 @@ VisualStudioVersion = 17.2.32505.173
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutomaticDownloadFile", "AutomaticDownloadFile\AutomaticDownloadFile.csproj", "{00CF0856-7841-485F-881C-C3649F39ECFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomaticDownloadFile.Config", "AutomaticDownloadFile.Config\AutomaticDownloadFile.Config.csproj", "{520B1BF2-F162-44F0-9863-C1CF51839DC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutomaticDownloadFile.Config", "AutomaticDownloadFile.Config\AutomaticDownloadFile.Config.csproj", "{520B1BF2-F162-44F0-9863-C1CF51839DC5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileDados", "FileDados\FileDados.csproj", "{9F1A6463-8E20-4120-A529-3642FB4DFFC5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{520B1BF2-F162-44F0-9863-C1CF51839DC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{520B1BF2-F162-44F0-9863-C1CF51839DC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{520B1BF2-F162-44F0-9863-C1CF51839DC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F1A6463-8E20-4120-A529-3642FB4DFFC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F1A6463-8E20-4120-A529-3642FB4DFFC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F1A6463-8E20-4120-A529-3642FB4DFFC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F1A6463-8E20-4120-A529-3642FB4DFFC5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

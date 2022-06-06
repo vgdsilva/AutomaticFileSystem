@@ -1,21 +1,17 @@
 ﻿using AutomaticDownloadFile.Enuns;
 using AutomaticDownloadFile.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using FileDados.Entidades;
+
 
 namespace AutomaticDownloadFile.ServiceBO
 {
     public class AutomaticFileServiceBO
     {
+        private Dados dados;
 
-        private static string userName = Environment.UserName;
-
-        private static string source_dir = @$"C:\Users\{userName}\Downloads";
-        private static string destination_dir_image = @$"C:\Users\{userName}\Pictures\";
-        private static string destination_dir_documents = @$"C:\Users\{userName}\Documents\";
+        private string source_dir;
+        private string destination_dir_image;
+        private string destination_dir_documents;
         
         private static List<TiposArquivos> images_extentions = new List<TiposArquivos> { TiposArquivos.PNG, TiposArquivos.JPG, TiposArquivos.JPEG };
         private static List<TiposArquivos> documents_extentions = new List<TiposArquivos> { TiposArquivos.DOC, TiposArquivos.PDF, TiposArquivos.DOCX, TiposArquivos.TXT, TiposArquivos.XLS, TiposArquivos.XLSX };
@@ -27,6 +23,9 @@ namespace AutomaticDownloadFile.ServiceBO
 
         public void IniciateFileService()
         {
+
+            source_dir = dados.source_dir;
+
             var files = from file in Directory.EnumerateFiles(source_dir) select file;
             //Console.WriteLine("Files: {0}", files.Count<string>().ToString());
             //Console.WriteLine("List of Files Moved:");

@@ -11,4 +11,9 @@
     <PackageReference Include="Topshelf" Version="4.3.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AutomaticDownloadFile.Config\AutomaticDownloadFile.Config.csproj" />
+    <ProjectReference Include="..\FileDados\FileDados.csproj" />
+  </ItemGroup>
+
 </Project>

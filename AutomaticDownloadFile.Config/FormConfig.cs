@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AutomaticDownloadFile.Config.Configuracoes;
+using AutomaticDownloadFile.Config.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,8 @@ namespace AutomaticDownloadFile.Config
 {
     public partial class FormConfig : Form
     {
+        ConfiguracoesEntitie ConfiguracoesEntitie { get; set; }
+
         public FormConfig()
         {
             InitializeComponent();
@@ -19,19 +23,23 @@ namespace AutomaticDownloadFile.Config
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenFileDialog folderBrowser = new OpenFileDialog();
-            // Set validate names and check file exists to false otherwise windows will
-            // not let you select "Folder Selection."
-            folderBrowser.ValidateNames = false;
-            folderBrowser.CheckFileExists = false;
-            folderBrowser.CheckPathExists = true;
-            // Always default to Folder Selection.
-            folderBrowser.FileName = "Folder Selection.";
-            if (folderBrowser.ShowDialog() == DialogResult.OK)
-            {
-                string folderPath = Path.GetDirectoryName(folderBrowser.FileName);
-                textBox1.Text = folderPath;
-            }
+            textBox1.Text = Utilities.FolderDialog();
+        }
+
+        private void FormConfig_Load(object sender, EventArgs e)
+        {
+            ConfiguracoesEntitie = new ConfiguracoesBO().GetDadosConfiguracao();
+            SetCamposForm();
+        }
+
+
+        private void SetCamposForm()
+        {
+            textBox1.Text = ConfiguracoesEntitie.Source;
         }
     }
+
+    
+
+
 }

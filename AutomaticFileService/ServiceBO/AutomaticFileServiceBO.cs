@@ -23,16 +23,23 @@ namespace AutomaticFileService.ServiceBO
             dados = new DadosBO().GetDadosFiles();
 
             var files = from file in Directory.EnumerateFiles(dados.source_dir) select file;
-            //Console.WriteLine("Files: {0}", files.Count<string>().ToString());
-            //Console.WriteLine("List of Files Moved:");
             foreach (var file in files)
             {
                 string source_file = file.Replace($@"{dados.source_dir}\", " ");
-                //Console.WriteLine("{0}", fl);
 
                 CheckImageFiles(file);
                 CheckDocumentsFiles(file);
             }
+        }
+
+        public void VerificarArquivoDeConfiguracao()
+        {
+            new DadosBO().VerificaSeExisteArquivoDeConfiguracao();
+        }
+
+        private void CheckFiles()
+        {
+
         }
 
         private void CheckDocumentsFiles(string file)

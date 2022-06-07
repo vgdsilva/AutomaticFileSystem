@@ -18,6 +18,7 @@ namespace AutomaticFileService.Service
             // o AutoReset vai permetir que ele recomeçe todo o timer do Serviço
             _timer = new System.Timers.Timer(1000) { AutoReset = true };
             serviceBO = new AutomaticFileServiceBO();
+            serviceBO.VerificarArquivoDeConfiguracao();
             _timer.Elapsed += TimerElapsed;
         }
 

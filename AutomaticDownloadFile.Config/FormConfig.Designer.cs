@@ -37,6 +37,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -114,6 +115,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
@@ -131,6 +133,13 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(499, 621);
             this.tabControl1.TabIndex = 9;
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(6, 72);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(479, 515);
+            this.panel1.TabIndex = 5;
             // 
             // FormConfig
             // 
@@ -167,5 +176,6 @@
         private Button button4;
         private TabPage tabPage1;
         private TabControl tabControl1;
+        private Panel panel1;
     }
 }

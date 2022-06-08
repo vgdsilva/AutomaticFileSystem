@@ -36,8 +36,9 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.button5 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -115,6 +116,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button5);
             this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
@@ -125,6 +127,13 @@
             this.tabPage1.Text = "Configuration";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(6, 101);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(479, 486);
+            this.panel1.TabIndex = 5;
+            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
@@ -134,12 +143,14 @@
             this.tabControl1.Size = new System.Drawing.Size(499, 621);
             this.tabControl1.TabIndex = 9;
             // 
-            // panel1
+            // button5
             // 
-            this.panel1.Location = new System.Drawing.Point(6, 72);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(479, 515);
-            this.panel1.TabIndex = 5;
+            this.button5.Location = new System.Drawing.Point(339, 72);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(140, 23);
+            this.button5.TabIndex = 6;
+            this.button5.Text = "Add Path";
+            this.button5.UseVisualStyleBackColor = true;
             // 
             // FormConfig
             // 
@@ -177,5 +188,6 @@
         private TabPage tabPage1;
         private TabControl tabControl1;
         private Panel panel1;
+        private Button button5;
     }
 }

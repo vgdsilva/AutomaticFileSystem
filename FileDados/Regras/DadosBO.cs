@@ -25,6 +25,27 @@ namespace FileDados.Regras
             return dados;
         }
 
+        public Dados GetDadosFromConfiguration()
+        {
+            Dados dados = new Dados();
+            dados.source_dir = @$"C:\Users\{userName}\Downloads";
+
+            List<PathDados> Directorys = new List<PathDados>();
+            Directorys.Add(new PathDados()
+            {
+                destination_dir = @$"C:\Users\{userName}\Pictures\",
+            });
+
+            Directorys.Add(new PathDados()
+            {
+                destination_dir = @$"C:\Users\{userName}\Documents\"
+            });
+
+            dados.PathDados = Directorys;
+
+            return dados;
+        }
+
         public void VerificaSeExisteArquivoDeConfiguracao()
         {
             if (!Directory.Exists(path))
@@ -33,25 +54,26 @@ namespace FileDados.Regras
             }
             else
             {
-                List<JsonConfiguracao> configs = new List<JsonConfiguracao>();
-                List<JsonConfiguracaoOuthers> Directorys = new List<JsonConfiguracaoOuthers>();
-                Directorys.Add(new JsonConfiguracaoOuthers()
+
+                List<Dados> configGeral = new List<Dados>();
+                List<PathDados> Directorys = new List<PathDados>();
+                Directorys.Add(new PathDados()
                 {
-                    Dir_Directory = @$"C:\Users\{userName}\Pictures\",
+                    destination_dir = @$"C:\Users\{userName}\Pictures\",
                 });
                 
-                Directorys.Add(new JsonConfiguracaoOuthers()
+                Directorys.Add(new PathDados()
                 {
-                    Dir_Directory = @$"C:\Users\{userName}\Documents\"
+                    destination_dir = @$"C:\Users\{userName}\Documents\"
                 });
 
-                configs.Add(new JsonConfiguracao()
+                configGeral.Add(new Dados()
                 {
-                    SourceDirectory = @$"C:\Users\{userName}\Downloads",
-                    Directorys = Directorys
+                    source_dir = @$"C:\Users\{userName}\Downloads",
+                    PathDados = Directorys
                 });
 
-                string json = JsonSerializer.Serialize(configs);
+                string json = JsonSerializer.Serialize(configGeral);
 
                 using (var tw = new StreamWriter(file))
                 {

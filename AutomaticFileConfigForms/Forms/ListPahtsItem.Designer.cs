@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.TXT_DestinationPath = new System.Windows.Forms.TextBox();
+            this.LBL_Caminho = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // textBox1
+            // TXT_DestinationPath
             // 
-            this.textBox1.Location = new System.Drawing.Point(3, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(418, 23);
-            this.textBox1.TabIndex = 0;
+            this.TXT_DestinationPath.Location = new System.Drawing.Point(46, 13);
+            this.TXT_DestinationPath.Name = "TXT_DestinationPath";
+            this.TXT_DestinationPath.Size = new System.Drawing.Size(405, 23);
+            this.TXT_DestinationPath.TabIndex = 0;
             // 
-            // label1
+            // LBL_Caminho
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
+            this.LBL_Caminho.AutoSize = true;
+            this.LBL_Caminho.Location = new System.Drawing.Point(3, 16);
+            this.LBL_Caminho.Name = "LBL_Caminho";
+            this.LBL_Caminho.Size = new System.Drawing.Size(37, 15);
+            this.LBL_Caminho.TabIndex = 1;
+            this.LBL_Caminho.Text = "Path :";
             // 
             // ListPahtsItem
             // 
@@ -54,10 +54,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.LBL_Caminho);
+            this.Controls.Add(this.TXT_DestinationPath);
             this.Name = "ListPahtsItem";
-            this.Size = new System.Drawing.Size(459, 65);
+            this.Size = new System.Drawing.Size(470, 50);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -65,7 +65,7 @@
 
         #endregion
 
-        private TextBox textBox1;
-        private Label label1;
+        private TextBox TXT_DestinationPath;
+        private Label LBL_Caminho;
     }
 }

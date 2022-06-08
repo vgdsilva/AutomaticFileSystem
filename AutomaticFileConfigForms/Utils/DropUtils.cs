@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AutomaticDownloadFile.Config.Utils
+namespace AutomaticFileConfigForms.Utils
 {
-    public static class Utilities
+    public static class DropUtils
     {
-
-        public static string FolderDialog()
+        public static string FolderDialog(string oldFolderPath)
         {
+
             OpenFileDialog folderBrowser = new OpenFileDialog();
             // Set validate names and check file exists to false otherwise windows will
             // not let you select "Folder Selection."
@@ -27,14 +27,8 @@ namespace AutomaticDownloadFile.Config.Utils
             }
             else
             {
-                return string.Empty;
+                return oldFolderPath;
             }
-        } 
-
-
-
-
-
-
+        }
     }
 }

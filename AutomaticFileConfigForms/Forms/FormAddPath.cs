@@ -11,13 +11,18 @@ using System.Windows.Forms;
 
 namespace AutomaticFileConfigForms.Forms
 {
-    public partial class ListPahtsItem : UserControl
+    public partial class FormAddPath : Form
     {
-
-        public ListPahtsItem(PathDados path)
+        PathDados dados;
+        public FormAddPath(PathDados pathDados)
         {
             InitializeComponent();
-            TXT_DestinationPath.Text = path.destination_dir;
+            dados = pathDados != null ? pathDados : new PathDados();
+        }
+
+        private void FormAddPath_Load(object sender, EventArgs e)
+        {
+            TXT_DestinationFolder.Text = dados.destination_dir;
         }
     }
 }

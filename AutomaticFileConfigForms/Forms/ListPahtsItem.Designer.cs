@@ -36,7 +36,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(3, 30);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(465, 23);
+            this.textBox1.Size = new System.Drawing.Size(418, 23);
             this.textBox1.TabIndex = 0;
             // 
             // label1
@@ -57,7 +57,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Name = "ListPahtsItem";
-            this.Size = new System.Drawing.Size(471, 65);
+            this.Size = new System.Drawing.Size(459, 65);
             this.ResumeLayout(false);
             this.PerformLayout();
 

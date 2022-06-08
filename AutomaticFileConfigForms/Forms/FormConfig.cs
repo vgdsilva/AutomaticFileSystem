@@ -31,7 +31,7 @@ namespace AutomaticFileConfigForms.Forms
                 itens[i] = new ListPahtsItem();
                 itens[i].Text = "Teste";
 
-                listView1.Controls.Add(itens[i]);
+                flowLayoutPanel1.Controls.Add(itens[i]);
             }
         }
     }

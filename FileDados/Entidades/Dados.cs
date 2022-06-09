@@ -22,6 +22,7 @@ namespace FileDados.Entidades
         public string destination_dir { get; set; }
         public string name_contains { get; set; }
         public List<TiposArquivos> extencions { get; set; } = new List<TiposArquivos>();
+        public TipeCheckBox TipeFileSource { get; set; } = TipeCheckBox.Extensoes;
 
     }
 }

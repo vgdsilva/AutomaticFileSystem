@@ -17,7 +17,12 @@ namespace AutomaticFileConfigForms.Forms
         public ListPahtsItem(PathDados path)
         {
             InitializeComponent();
-            TXT_DestinationPath.Text = path.destination_dir;
+            LoadFields(path);
+        }
+
+        private void LoadFields(PathDados dados)
+        {
+            TXT_DestinationPath.Text = dados.destination_dir;
         }
     }
 }

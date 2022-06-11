@@ -49,7 +49,10 @@ namespace AutomaticFileConfigForms.Forms
         private void CBOX_Extension_CheckedChanged(object sender, EventArgs e)
         {
             if (CBOX_ContainName.Checked)
+            {
                 CBOX_ContainName.Checked = false;
+                CBOX_Extension.Checked = true;
+            }
 
             dados.TipeFileSource = TipeCheckBox.Extensoes;
             ChangeCheckedTipeInput(dados.TipeFileSource);
@@ -58,7 +61,10 @@ namespace AutomaticFileConfigForms.Forms
         private void CBOX_ContainName_CheckedChanged(object sender, EventArgs e)
         {
             if (CBOX_Extension.Checked)
+            {
                 CBOX_Extension.Checked = false;
+                CBOX_ContainName.Checked = true;
+            }
 
             dados.TipeFileSource = TipeCheckBox.ContainName;
             ChangeCheckedTipeInput(dados.TipeFileSource);

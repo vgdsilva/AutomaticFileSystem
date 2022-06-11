@@ -17,19 +17,23 @@ namespace AutomaticFileConfigForms.Forms
     {
         
         List<PathDados> listPahts;
+        DadosBO DadosBO;
+
         public FormConfig()
         {
             InitializeComponent();
             listPahts = new List<PathDados>();
+            DadosBO = new DadosBO();
         }
 
         private void FormConfig_Load(object sender, EventArgs e)
         {
-            ChargeConfuration();
+            DadosBO.VerificaSeExisteArquivoDeConfiguracao();
+            LoadConfuration();
             LoadDestinationItens();
         }
 
-        private void ChargeConfuration()
+        private void LoadConfuration()
         {
             Dados configuration = new DadosBO().GetDadosFromConfiguration();
             if (!string.IsNullOrEmpty(configuration.source_dir))

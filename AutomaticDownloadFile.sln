@@ -3,13 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32505.173
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutomaticDownloadFile.Config", "AutomaticDownloadFile.Config\AutomaticDownloadFile.Config.csproj", "{520B1BF2-F162-44F0-9863-C1CF51839DC5}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileDados", "FileDados\FileDados.csproj", "{9F1A6463-8E20-4120-A529-3642FB4DFFC5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutomaticFileService", "AutomaticFileService\AutomaticFileService.csproj", "{A91FCD0C-5FC1-4966-80F3-7C0B387D3EDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomaticFileConfigForms", "AutomaticFileConfigForms\AutomaticFileConfigForms.csproj", "{2EF1356E-61E0-46C6-9609-C8B7D2E9CDA3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutomaticFileConfigForms", "AutomaticFileConfigForms\AutomaticFileConfigForms.csproj", "{2EF1356E-61E0-46C6-9609-C8B7D2E9CDA3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{520B1BF2-F162-44F0-9863-C1CF51839DC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{520B1BF2-F162-44F0-9863-C1CF51839DC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{520B1BF2-F162-44F0-9863-C1CF51839DC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{520B1BF2-F162-44F0-9863-C1CF51839DC5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9F1A6463-8E20-4120-A529-3642FB4DFFC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9F1A6463-8E20-4120-A529-3642FB4DFFC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F1A6463-8E20-4120-A529-3642FB4DFFC5}.Release|Any CPU.ActiveCfg = Release|Any CPU

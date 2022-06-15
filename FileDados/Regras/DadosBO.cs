@@ -31,27 +31,40 @@ namespace FileDados.Regras
                 {
                     string FileContent;
                     using (StreamReader reader = new StreamReader(stream))
-                    {
                         FileContent = reader.ReadToEnd();
-                    }
-
+                    
                     DadosJson = JsonSerializer.Deserialize<Dados>(FileContent);
-
                 }
                 else
-                {
                     DadosJson = GetDadosBasic();
-                }
-                
             }
             return DadosJson;
         }
 
+        public void SalvarDadosInJsonFile(Dados dadosNew)
+        {
+            using (Stream stream = new FileStream(file, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite))
+            {
+                if (File.Exists(file) && stream.Length > 0)
+                    File.Delete(file);
+
+                using (StreamWriter writer = new StreamWriter(stream))
+                {
+                    string FileContent = JsonSerializer.Serialize(dadosNew);
+                    writer.WriteLine(FileContent);
+                }
+            }
+        }
+
         public void VerificaSeExisteArquivoDeConfiguracao()
         {
-            if (!Directory.Exists(path))
-                Directory.CreateDirectory(path);
-            
+            if (!File.Exists(file))
+            {
+                var options = new JsonSerializerOptions { WriteIndented = true };
+                using FileStream fileStream = File.Create(file);
+                JsonSerializer.Serialize(fileStream, GetDadosBasic(), options);
+                fileStream.Dispose();
+            }
         }
 
 

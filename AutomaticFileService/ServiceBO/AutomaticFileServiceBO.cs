@@ -14,21 +14,19 @@ namespace AutomaticFileService.ServiceBO
     {
         private Dados dados;
 
-        private static List<TiposArquivos> images_extentions = new List<TiposArquivos> { TiposArquivos.PNG, TiposArquivos.JPG, TiposArquivos.JPEG };
-        private static List<TiposArquivos> documents_extentions = new List<TiposArquivos> { TiposArquivos.DOC, TiposArquivos.PDF, TiposArquivos.DOCX, TiposArquivos.TXT, TiposArquivos.XLS, TiposArquivos.XLSX };
-
-
         public void IniciateFileService()
         {
-            dados = new DadosBO().GetDadosFiles();
+            dados = new DadosBO().GetDadosFromConfiguration();
 
             var files = from file in Directory.EnumerateFiles(dados.source_dir) select file;
             foreach (var file in files)
             {
-                string source_file = file.Replace($@"{dados.source_dir}\", " ");
+                foreach (var paths in dados.PathDados)
+                {
+                    string source_file = file.Replace($@"{dados.source_dir}\", " ");
 
-                CheckImageFiles(file);
-                CheckDocumentsFiles(file);
+                    CheckFiles(file, paths.name_contains, paths.destination_dir, source_file, paths.extencions);
+                }
             }
         }
 
@@ -36,37 +34,60 @@ namespace AutomaticFileService.ServiceBO
         {
             new DadosBO().VerificaSeExisteArquivoDeConfiguracao();
         }
-
-        private void CheckFiles()
+        private void CheckFiles(string file, string Content, string destination, string source_file, List<TiposArquivos> extensoes)
         {
-
+            if (Content != null && Content != "")
+                CheckFilesByNameContent(file, Content, destination, source_file);
+            else
+                CheckFilesByTypeExtensions(file, extensoes, destination, source_file);
         }
 
-        private void CheckDocumentsFiles(string file)
+        private void CheckFilesByTypeExtensions(string file, List<TiposArquivos> extensoes, string destination, string source_file)
         {
-            documents_extentions.ForEach(extention =>
+            extensoes.ForEach(e =>
             {
-                if (file.EndsWith(extention.GetEnumDescription()))
+                if (file.EndsWith(e.GetEnumDescription()))
                 {
-                    string source_file = file.Replace($@"{dados.source_dir}\", " ");
-                    Console.WriteLine("Moved Document file: {0} to Directory: {1}", source_file, dados.destination_dir_documents);
-                    MoveFiles(dados.destination_dir_documents, file, source_file);
+                    MoveFiles(destination, file, source_file);
                 }
             });
         }
 
-        private void CheckImageFiles(string file)
+        private void CheckFilesByNameContent(string file, string Content, string destination, string source_file)
         {
-            images_extentions.ForEach(extenction =>
+            if (!string.IsNullOrEmpty(Content) && file.Contains(Content))
             {
-                if (file.EndsWith(extenction.GetEnumDescription()))
-                {
-                    string source_file = file.Replace($@"{dados.source_dir}\", " ");
-                    Console.WriteLine("Moved image file: {0} to Directory: {1}", source_file, dados.destination_dir_image);
-                    MoveFiles(dados.destination_dir_image, file, source_file);
-                }
-            });
+                MoveFiles(destination, file, source_file);
+            }
         }
+
+        
+
+        //private void CheckDocumentsFiles(string file)
+        //{
+        //    documents_extentions.ForEach(extention =>
+        //    {
+        //        if (file.EndsWith(extention.GetEnumDescription()))
+        //        {
+        //            string source_file = file.Replace($@"{dados.source_dir}\", " ");
+        //            Console.WriteLine("Moved Document file: {0} to Directory: {1}", source_file, dados.destination_dir_documents);
+        //            MoveFiles(dados.destination_dir_documents, file, source_file);
+        //        }
+        //    });
+        //}
+
+        //private void CheckImageFiles(string file)
+        //{
+        //    images_extentions.ForEach(extenction =>
+        //    {
+        //        if (file.EndsWith(extenction.GetEnumDescription()))
+        //        {
+        //            string source_file = file.Replace($@"{dados.source_dir}\", " ");
+        //            Console.WriteLine("Moved image file: {0} to Directory: {1}", source_file, dados.destination_dir_image);
+        //            MoveFiles(dados.destination_dir_image, file, source_file);
+        //        }
+        //    });
+        //}
 
         private void MoveFiles(string destination, string pathToMove, string source_file)
         {
